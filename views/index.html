@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MMS - Home</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <nav>
+    <div class="logo">MMS</div>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h1>Welcome to MMS</h1>
+    <p>A simple Node.js website built with Express. Fast, minimal, and ready to extend.</p>
+    <button class="btn" onclick="fetchGreeting()">Try the API</button>
+    <div id="api-result"></div>
+  </section>
+
+  <div class="card-container">
+    <div class="card">
+      <h3>⚡ Fast</h3>
+      <p>Built on Express, one of the fastest Node.js frameworks.</p>
+    </div>
+    <div class="card">
+      <h3>🧩 Simple</h3>
+      <p>Clean structure that's easy to understand and extend.</p>
+    </div>
+    <div class="card">
+      <h3>🚀 Ready</h3>
+      <p>Start building your features right away.</p>
+    </div>
+  </div>
+
+  <footer>&copy; 2026 MMS. Built with Node.js &amp; Express.</footer>
+
+  <script>
+    async function fetchGreeting() {
+      const res = await fetch('/api/greeting');
+      const data = await res.json();
+      const el = document.getElementById('api-result');
+      el.style.display = 'block';
+      el.textContent = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>
